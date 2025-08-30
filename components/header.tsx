@@ -17,24 +17,24 @@ export default function Header() {
             <div className="w-8 h-8 relative">
               <Image src="/logo.png" alt="Language Center Logo" width={32} height={32} className="rounded-lg" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Til Markazi</span>
+            <span className="text-xl font-bold text-gray-900">AXMED SCHOOL</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+            <Link href="/" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
               Bosh sahifa
             </Link>
-            <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+            <Link href="/about" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
               Biz haqimizda
             </Link>
-            <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+            <Link href="/courses" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
               Kurslar
             </Link>
-            <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+            <Link href="/blog" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
               Blog
             </Link>
-            <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+            <Link href="/contact" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
               Aloqa
             </Link>
           </nav>
@@ -43,7 +43,7 @@ export default function Header() {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-3">
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/axmed_school/"
                 target="_blank"
                 className="text-gray-600 hover:text-red-600 transition-colors duration-200"
                 aria-label="Instagram"
@@ -51,7 +51,7 @@ export default function Header() {
                 <Instagram size={20} />
               </Link>
               <Link
-                href="https://t.me"
+                href="https://t.me/akxmedd"
                 target="_blank"
                 className="text-gray-600 hover:text-red-600 transition-colors duration-200"
                 aria-label="Telegram"
@@ -63,9 +63,9 @@ export default function Header() {
             </div>
 
             {/* CTA Button */}
-            <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200">
+            <Link href="/contact" className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full hover:bg-black hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-200 transition-all duration-200">
               Biz bilan bog'laning
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -78,25 +78,25 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <nav className="flex flex-col space-y-4">
-              <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <Link href="/" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
                 Bosh sahifa
               </Link>
-              <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <Link href="/about" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
                 Biz haqimizda
               </Link>
-              <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <Link href="/courses" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
                 Kurslar
               </Link>
-              <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <Link href="/blog" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
                 Blog
               </Link>
-              <Link href="#" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <Link href="/contact" className="text-gray-700 hover:text-red-600 transition-colors duration-200">
                 Aloqa
               </Link>
 
               <div className="flex items-center space-x-4 pt-2">
                 <Link
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/invites/contact/?igsh=b45p8rpisxwp&utm_content=vnsibsb"
                   target="_blank"
                   className="text-gray-600 hover:text-red-600 transition-colors duration-200"
                   aria-label="Instagram"
@@ -104,7 +104,7 @@ export default function Header() {
                   <Instagram size={20} />
                 </Link>
                 <Link
-                  href="https://t.me"
+                  href="https://t.me/Axmed_school"
                   target="_blank"
                   className="text-gray-600 hover:text-red-600 transition-colors duration-200"
                   aria-label="Telegram"
@@ -115,9 +115,9 @@ export default function Header() {
                 </Link>
               </div>
 
-              <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full w-fit">
+              <Link href="/contact" className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full w-fit hover:bg-black hover:text-white">
                 Biz bilan bog'laning
-              </button>
+              </Link>
             </nav>
           </div>
         )}

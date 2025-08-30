@@ -30,13 +30,13 @@ const categories = [
   },
   {
     icon: Globe,
-    title: "IELTS/TOEFL tayyorgarlik",
+    title: "IELTS tayyorgarlik",
     description: "Xalqaro imtihonlarga tayyorgarlik ko'ring",
     color: "from-orange-500 to-orange-600",
   },
   {
     icon: Award,
-    title: "Konsalting xizmatlari",
+    title: "Consulting xizmatlari",
     description: "Chet elda ta'lim olish bo'yicha maslahat",
     color: "from-teal-500 to-teal-600",
   },
