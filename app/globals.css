@@ -147,6 +147,15 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer utilities {
+  .hover-dark {
+    @apply hover:brightness-90 hover:contrast-125;
+  }
+  .hover-dark-bg {
+    @apply hover:bg-gray-900 hover:text-white;
+  }
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;

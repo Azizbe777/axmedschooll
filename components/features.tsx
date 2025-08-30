@@ -33,7 +33,7 @@ export default function Features() {
           >
             <div className="relative">
               <img
-                src="/person-studying-online-with-laptop.png"
+                src="/person.png"
                 alt="Online til o'rganish"
                 className="rounded-2xl shadow-lg w-full h-64 object-cover"
               />
@@ -59,11 +59,11 @@ export default function Features() {
             <div className="bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl p-6">
               <blockquote className="text-white">
                 <p className="mb-4 font-medium">
-                  "O'zingizga ishoning, o'rganishda davom eting va muvaffaqiyat sizni kuzatib boradi."
+                  "Biz bilim bilan muvaffaqiyat ulashamiz!"
                 </p>
                 <footer className="text-white/90">
-                  <cite className="font-semibold">Aziz A.</cite>
-                  <p className="text-sm">Til kursi o'quvchisi</p>
+                  <cite className="font-semibold">Ali Akxmedov</cite>
+                  <p className="text-sm">Akxmedov School Founder</p>
                 </footer>
               </blockquote>
             </div>
@@ -73,9 +73,10 @@ export default function Features() {
           <div
             className={`transform transition-all duration-1000 delay-400 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
           >
+          
             <div className="relative">
               <img
-                src="/happy-student-with-books-and-laptop.png"
+                src="/happy.png"
                 alt="Baxtli talaba"
                 className="rounded-2xl shadow-lg w-full h-64 object-cover"
               />

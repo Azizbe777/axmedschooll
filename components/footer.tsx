@@ -72,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  Ingliz tili
+                  Ingliz tili/ CEFR
                 </Link>
               </li>
               <li>
@@ -87,12 +87,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  IELTS/TOEFL
+                  IELTS
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  Konsalting
+                  Consulting
                 </Link>
               </li>
             </ul>
@@ -104,18 +104,19 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center space-x-3">
                 <Mail size={16} className="text-red-400" />
-                <span className="text-gray-400">info@tilmarkazi.uz</span>
+                <span className="text-gray-400">axmedschool@gmail.com</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={16} className="text-red-400" />
-                <span className="text-gray-400">+998 (90) 123-45-67</span>
+                <span className="text-gray-400">+998 (70) 108 47 47 </span>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={16} className="text-red-400 mt-1" />
                 <span className="text-gray-400">
-                  Amir Temur ko'chasi, 123
+                Jizzax shahar, Islom.Karimov ko'chasi
+                
                   <br />
-                  Toshkent, O'zbekiston
+                  Mo'ljal: Prospekt yoshlar markaziga yetmasdan
                 </span>
               </li>
             </ul>

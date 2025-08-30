@@ -10,7 +10,7 @@ export default function FAQ() {
     {
       question: "Darslar jadvali qanday?",
       answer:
-        "Darslar haftada 3 marta, har bir dars 1.5 soat davom etadi. Ertalabki va kechki guruhlar mavjud. Jadval talabalarning qulay vaqtiga moslashtiriladi.",
+        "Darslar haftada 3/5 marta, har bir dars 1.5 soat davom etadi. Ertalabki va kechki guruhlar mavjud. Jadval talabalarning qulay vaqtiga moslashtiriladi.",
     },
     {
       question: "Kursga qanday ro'yxatdan o'tiladi?",
@@ -20,7 +20,7 @@ export default function FAQ() {
     {
       question: "Imtihonlar va imtihon oldi sinovlar qanday o'tkaziladi?",
       answer:
-        "Har oy oxirida progress testlari o'tkaziladi. IELTS, TOEFL va boshqa xalqaro imtihonlarga tayyorgarlik alohida dastur bo'yicha amalga oshiriladi.",
+        "Har oy oxirida progress testlari o'tkaziladi. IELTS, va boshqa xalqaro imtihonlarga tayyorgarlik alohida dastur bo'yicha amalga oshiriladi.",
     },
     {
       question: "Kurs narxi va to'lov imkoniyatlari qanday?",

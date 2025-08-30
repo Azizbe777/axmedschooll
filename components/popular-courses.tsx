@@ -77,7 +77,7 @@ export default function PopularCourses() {
             Eng Mashhur{" "}
             <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Kurslar</span>
           </h2>
-          <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
+          <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full hover:from-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-300">
             Barcha kurslarni ko'rish
           </button>
         </div>
@@ -127,7 +127,7 @@ export default function PopularCourses() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-red-600">{course.price}</span>
-                  <button className="bg-gray-100 hover:bg-red-100 text-gray-700 hover:text-red-600 px-4 py-2 rounded-lg transition-all duration-300">
+                  <button className="bg-gray-100 hover:bg-black hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300">
                     Ro'yxatdan o'tish
                   </button>
                 </div>
