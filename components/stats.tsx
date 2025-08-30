@@ -29,7 +29,7 @@ export default function Stats() {
       const duration = 2000
       const steps = 60
       const completionTarget = 95
-      const studentsTarget = 5000
+      const studentsTarget = 500
 
       let step = 0
       const timer = setInterval(() => {
@@ -52,47 +52,61 @@ export default function Stats() {
   }, [isVisible])
 
   return (
-    <section ref={sectionRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 to-orange-50">
-      <div className="max-w-7xl mx-auto">
+    <section
+      ref={sectionRef}
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-red-900 text-white"
+    >
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+
+      <div className="relative max-w-7xl mx-auto">
+        {/* Title */}
         <div
-          className={`text-center mb-12 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          className={`text-center mb-16 transform transition-all duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Bilimni Ochish <br />
-            Bizning{" "}
-            <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Til Markazi</span>{" "}
-            bilan
+          <h2 className="text-3xl sm:text-5xl font-extrabold mb-6">
+            🔥 Biz bilim bilan muvaffaqiyat ulashamiz!  
+            <br />
+            <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
+              Akxmed School
+            </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Til Markazi innovatsion o'qitish usullari va shaxsiy yondashuv bilan til o'rganish tajribasini taklif etadi.
-            Professional o'qituvchilar bilan birga til ko'nikmalaringizni rivojlantiring.
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Ingliz va koreys tillarini zamonaviy uslublarda, energiyaga to‘la darslar bilan o‘rganing.  
+            <br /> “Kelajaging – bugungi tanlovingdan boshlanadi.”
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          {/* Completion */}
           <div
-            className={`text-center transform transition-all duration-1000 delay-200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`transform transition-all duration-1000 delay-200 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
           >
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-gray-600 font-medium mb-2">O'rtacha kurs yakunlash darajasi</h3>
-              <div className="text-5xl font-bold bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent mb-2">
-                {counts.completion}%
-              </div>
-              <p className="text-gray-500 text-sm">
-                Talabalar bizning samarali o'qitish usullarimiz bilan kurslarni muvaffaqiyatli yakunlaydi
+            <div className="backdrop-blur-lg bg-white/5 border border-red-600 rounded-3xl p-10 shadow-lg hover:scale-105 hover:shadow-red-500/40 transition-all duration-300">
+              <h3 className="text-gray-300 font-medium mb-3">O‘rtacha kursni tugatish darajasi</h3>
+              <div className="text-6xl font-extrabold text-red-500 mb-3">{counts.completion}%</div>
+              <p className="text-gray-400 text-sm">
+                Talabalarimizning 95% kurslarni muvaffaqiyatli tugatmoqda
               </p>
             </div>
           </div>
 
+          {/* Students */}
           <div
-            className={`text-center transform transition-all duration-1000 delay-400 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`transform transition-all duration-1000 delay-400 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
           >
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-gray-600 font-medium mb-2">Ro'yxatdan o'tgan talabalar</h3>
-              <div className="text-5xl font-bold bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent mb-2">
+            <div className="backdrop-blur-lg bg-white/5 border border-red-600 rounded-3xl p-10 shadow-lg hover:scale-105 hover:shadow-red-500/40 transition-all duration-300">
+              <h3 className="text-gray-300 font-medium mb-3">Ro‘yxatdan o‘tgan talabalar</h3>
+              <div className="text-6xl font-extrabold text-red-500 mb-3">
                 {counts.students.toLocaleString()}+
               </div>
-              <p className="text-gray-500 text-sm">5000+ talaba bizning Til Markazi bilan til o'rganmoqda</p>
+              <p className="text-gray-400 text-sm">500+ talaba biz bilan ingliz va koreys tillarini o‘rganmoqda</p>
             </div>
           </div>
         </div>
