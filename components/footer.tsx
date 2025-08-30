@@ -66,7 +66,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Categories */}
+          {/* Categories reerfd*/}
           <div>
             <h3 className="text-lg font-semibold mb-6">Kurs turlari</h3>
             <ul className="space-y-3">
