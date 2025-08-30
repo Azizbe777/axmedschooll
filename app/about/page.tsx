@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { MapPin, Phone, Mail, CheckCircle } from "lucide-react"
+import { MapPin, Phone, Mail, CheckCircle, Users, Award, BookOpen, Globe } from "lucide-react"
+import Image from "next/image"
 
 export default function AboutPage() {
   const [formData, setFormData] = useState({
@@ -13,209 +14,225 @@ export default function AboutPage() {
   })
   const [success, setSuccess] = useState(false)
 
-  const TELEGRAM_BOT_TOKEN = "8012308771:AAGaMvQuqylGZ-ETvRR5p9SbhxW9MUcCGgE" // Bot tokeni
-  const CHAT_ID = "-4910162726" // Chat ID
+  const TELEGRAM_BOT_TOKEN = "8012308771:AAGaMvQuqylGZ-ETvRR5p9SbhxW9MUcCGgE"
+  const CHAT_ID = "-4910162726"
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const message = `Yangi xabar: \nIsm: ${formData.name} \nEmail: ${formData.email} \nTelefon: ${formData.phone} \nXabar: ${formData.message}`
+    const message = `📩 Yangi xabar:\n👤 Ism: ${formData.name}\n📧 Email: ${formData.email}\n📞 Telefon: ${formData.phone}\n💬 Xabar: ${formData.message}`
 
     try {
       const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
       })
-
       const data = await res.json()
-
       if (data.ok) {
         setSuccess(true)
         setFormData({ name: "", email: "", phone: "", message: "" })
         setTimeout(() => setSuccess(false), 3000)
       }
     } catch (error) {
-      console.error("Xabar yuborishda xatolik:", error)
+      console.error("❌ Xabar yuborishda xatolik:", error)
     }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-black text-white font-sans">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="pt-32 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-black to-black"></div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-6xl mx-auto text-center z-10"
+        >
+          <h1 className="font-heading-black text-6xl md:text-7xl font-extrabold tracking-tight drop-shadow-lg">
+            <span className="text-white">Axmed</span>{" "}
+            <span className="text-red-500">School</span>
+          </h1>
+          <p className="font-body text-xl md:text-2xl text-gray-300 mt-6 leading-relaxed">
+            🇺🇿 O'zbekistondagi eng kuchli <span className="text-red-400 font-body-semibold">til ta'lim markazi</span>  
+            – Sizning kelajagingiz uchun ishonchli qadam!
+          </p>
+          <div className="mt-10 w-28 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"></div>
+        </motion.div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-6 bg-white text-black relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Text */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Axmed School <span className="text-red-600">haqida</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              2025-yildan beri O'zbekistonda professional til ta'limi berib kelayotgan yetakchi ta'lim markazi
+            <h2 className="font-heading-bold text-4xl font-bold mb-8">
+              Biz <span className="text-red-600">kimmiz?</span>
+            </h2>
+            <p className="font-body text-lg text-gray-700 mb-6 leading-relaxed">
+              <span className="font-body-semibold">Axmed School</span> – xalqaro standartlarga mos keluvchi, 
+              <span className="text-red-500 font-body-semibold"> IELTS, TOEFL, CEFR </span>
+              kurslari orqali minglab talabalarni orzulariga yetkazgan markaz.
             </p>
+            <p className="font-body text-lg text-gray-700 leading-relaxed">
+              Bizning ustozlar – tajribali va natijador.  
+              Sizning muvaffaqiyatingiz – bizning asosiy maqsadimiz.
+            </p>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-red-500/40 group">
+              <Image
+                src="/happy-student-with-books-and-laptop.png"
+                alt="Happy student"
+                width={600}
+                height={400}
+                className="rounded-3xl group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-red-500/20"></div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+      {/* Stats */}
+      <section className="py-20 px-6 bg-gradient-to-br from-black via-gray-900 to-black">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.7 }}
+            className="font-heading-bold text-4xl font-bold mb-10"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Biz bilan bog'laning
-            </h2>
-            <p className="text-gray-600">
-              Savollaringiz bormi? Biz sizga yordam berishdan xursand bo'lamiz
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Manzil</h3>
-                    <p className="text-gray-600">Toshkent shahri, Chilonzor tumani</p>
-                  </div>
+            Bizning <span className="text-red-500">yutuqlarimiz</span>
+          </motion.h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            {[
+              { num: "1000+", label: "Muvaffaqiyatli talabalar", icon: Users },
+              { num: "95%", label: "IELTS natijasi", icon: Award },
+              { num: "50+", label: "Ustozlar", icon: BookOpen },
+              { num: "2+", label: "Yillik tajriba", icon: Globe }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                className="p-6 bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-lg shadow-red-500/20 hover:scale-105 transition-transform"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500 flex items-center justify-center">
+                  <item.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Telefon</h3>
-                    <p className="text-gray-600">+998 90 123 45 67</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">info@axmedschool.uz</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.form
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-6 shadow-lg"
-            >
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Ismingiz
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Ismingizni kiriting"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Email manzilingizni kiriting"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefon
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Telefon raqamingizni kiriting"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Xabar
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Xabaringizni yozing"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 px-6 rounded-lg hover:from-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
-                >
-                  Xabar yuborish
-                </button>
-              </div>
-            </motion.form>
+                <h3 className="font-heading-bold text-3xl font-bold text-red-500">{item.num}</h3>
+                <p className="font-body text-gray-300">{item.label}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Success Animation */}
+      {/* Contact */}
+      <section className="py-20 px-6 bg-black relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <h2 className="font-heading-bold text-4xl font-bold mb-6">
+              Biz bilan <span className="text-red-500">bog'laning</span>
+            </h2>
+            <p className="font-body text-gray-400 text-lg mb-8">
+              Savollaringiz bo'lsa, biz doimo yordam berishga tayyormiz.
+            </p>
+
+            {[
+              { icon: MapPin, title: "Manzil", text: "Jizzax, Islom Karimov ko'chasi" },
+              { icon: Phone, title: "Telefon", text: "+998 70-108-47-47" },
+              { icon: Mail, title: "Email", text: "axmedschool@gmail.com" }
+            ].map((item, i) => (
+              <div key={i} className="flex items-center space-x-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-red-500">
+                  <item.icon className="text-white w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-body-semibold text-white">{item.title}</h3>
+                  <p className="font-body text-gray-400">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Form */}
+          <motion.form
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            onSubmit={handleSubmit}
+            className="bg-gradient-to-br from-gray-900 to-black p-10 rounded-2xl shadow-2xl border border-gray-800"
+          >
+            <div className="space-y-6">
+              {["name", "email", "phone"].map((field) => (
+                <div key={field}>
+                  <input
+                    type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
+                    name={field}
+                    placeholder={field === "name" ? "Ismingiz" : field === "email" ? "Email" : "Telefon"}
+                    value={(formData as any)[field]}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring-2 focus:ring-red-500 text-white font-body"
+                    required={field !== "phone"}
+                  />
+                </div>
+              ))}
+              <textarea
+                name="message"
+                placeholder="Xabaringizni yozing..."
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 focus:ring-2 focus:ring-red-500 text-white font-body resize-none"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full py-4 bg-gradient-to-r from-red-600 to-red-500 rounded-lg text-white font-body-semibold text-lg shadow-lg hover:scale-105 transition-all"
+              >
+                Xabar yuborish
+              </button>
+            </div>
+          </motion.form>
+        </div>
+      </section>
+
+      {/* Success */}
       {success && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 bg-green-600 bg-opacity-75 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
         >
-          <div className="text-white flex items-center space-x-4 p-6 rounded-lg">
-            <CheckCircle className="w-8 h-8" />
-            <p className="text-xl">Xabar yuborildi!</p>
+          <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl shadow-2xl flex items-center space-x-4 border border-red-500">
+            <CheckCircle className="w-10 h-10 text-green-400" />
+            <p className="text-xl font-body-semibold text-white">✅ Xabar yuborildi!</p>
           </div>
         </motion.div>
       )}
