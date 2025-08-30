@@ -35,7 +35,7 @@ export default function ScrollToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 hover-dark transition-all duration-300 flex items-center justify-center group"
+          className="fixed bottom-8 left-8 z-50 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 hover-dark transition-all duration-300 flex items-center justify-center group"
           aria-label="Sahifaning boshiga qaytish"
         >
           <ChevronUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300" />
