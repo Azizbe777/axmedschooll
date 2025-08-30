@@ -5,44 +5,44 @@ import { Star, Clock, Users } from "lucide-react"
 
 const courses = [
   {
-    title: "Ingliz tili - Boshlang'ich daraja",
+    title: "Beginner-Elementary daraja",
     instructor: "Malika Karimova",
     rating: 4.9,
-    students: 2500,
-    duration: "60 soat",
-    price: "500,000 so'm",
-    image: "/web-development-coding-screen.png",
+    students: 15,
+    duration: "3 soat",
+    price: "280,000 so'm",
+    image: "/bg.jpg",
     category: "Ingliz tili",
   },
   {
-    title: "Business English - Biznes uchun",
+    title: "Pre-intermediate-Intermediate",
     instructor: "Jasur Rahimov",
     rating: 4.8,
-    students: 1800,
-    duration: "45 soat",
-    price: "750,000 so'm",
-    image: "/ui-ux-design-mockups.png",
+    students: 18,
+    duration: "3 oy",
+    price: "300,000 so'm",
+    image: "/pe.jpg",
     category: "Ingliz tili",
   },
   {
-    title: "Koreys tili - Boshlang'ich (TOPIK 1)",
+    title: "Pre-IELTS-IELTS",
     instructor: "Park Min-jung",
-    rating: 4.7,
-    students: 1200,
-    duration: "80 soat",
-    price: "800,000 so'm",
-    image: "/digital-marketing-analytics.png",
-    category: "Koreys tili",
+    rating: 5,
+    students: 12,
+    duration: "2-3 oy",
+    price: "350,000 so'm",
+    image: "/pre.avif",
+    category: "Ingiliz tili",
   },
   {
-    title: "IELTS tayyorgarlik kursi",
+    title: "Topic",
     instructor: "Dilnoza Abdullayeva",
     rating: 4.9,
-    students: 3200,
-    duration: "50 soat",
-    price: "900,000 so'm",
-    image: "/photography-camera-equipment.png",
-    category: "IELTS",
+    students: 25,
+    duration: "4-6 oy",
+    price: "350,000 so'm",
+    image: "/ielt.jpg",
+    category: "Koreys tili",
   },
 ]
 
@@ -74,7 +74,7 @@ export default function PopularCourses() {
           className={`flex flex-col sm:flex-row justify-between items-center mb-12 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-0">
-            Eng Mashhur{" "}
+            Top{" "}
             <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Kurslar</span>
           </h2>
           <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full hover:from-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-300">

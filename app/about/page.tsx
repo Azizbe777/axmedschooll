@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Users, Award, BookOpen, Target, Star, Mail, Phone, MapPin } from "lucide-react"
-import Image from "next/image"
+import { MapPin, Phone, Mail, CheckCircle } from "lucide-react"
 
 export default function AboutPage() {
   const [formData, setFormData] = useState({
@@ -12,11 +11,38 @@ export default function AboutPage() {
     phone: "",
     message: ""
   })
+  const [success, setSuccess] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const TELEGRAM_BOT_TOKEN = "8012308771:AAGaMvQuqylGZ-ETvRR5p9SbhxW9MUcCGgE" // Bot tokeni
+  const CHAT_ID = "-4910162726" // Chat ID
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
+
+    const message = `Yangi xabar: \nIsm: ${formData.name} \nEmail: ${formData.email} \nTelefon: ${formData.phone} \nXabar: ${formData.message}`
+
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message
+        })
+      })
+
+      const data = await res.json()
+
+      if (data.ok) {
+        setSuccess(true)
+        setFormData({ name: "", email: "", phone: "", message: "" })
+        setTimeout(() => setSuccess(false), 3000)
+      }
+    } catch (error) {
+      console.error("Xabar yuborishda xatolik:", error)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,132 +66,9 @@ export default function AboutPage() {
               Axmed School <span className="text-red-600">haqida</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              2018-yildan beri O'zbekistonda professional til ta'limi berib kelayotgan yetakchi ta'lim markazi
+              2025-yildan beri O'zbekistonda professional til ta'limi berib kelayotgan yetakchi ta'lim markazi
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-200 transition-colors">
-                <Users className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">5000+</h3>
-              <p className="text-gray-600">Muvaffaqiyatli o'quvchi</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                <Award className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">95%</h3>
-              <p className="text-gray-600">IELTS natijasi</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                <BookOpen className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">25+</h3>
-              <p className="text-gray-600">Professional o'qituvchi</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
-                <Target className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">8.5</h3>
-              <p className="text-gray-600">O'rtacha ball</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Nima uchun Axmed School?
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Star className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Professional o'qituvchilar</h3>
-                    <p className="text-gray-600">Xalqaro sertifikatlarga ega tajribali o'qituvchilar</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Star className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Zamonaviy metodika</h3>
-                    <p className="text-gray-600">Eng yangi ta'lim texnologiyalari va interaktiv darslar</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Star className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Individual yondashuv</h3>
-                    <p className="text-gray-600">Har bir o'quvchining darajasi va ehtiyojlariga mos</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Star className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Kafolatlangan natija</h3>
-                    <p className="text-gray-600">IELTS va TOPIK imtihonlarida yuqori ball</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="bg-gradient-to-br from-red-100 to-blue-100 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Bizning missiyamiz</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  O'zbekiston yoshlariga dunyo standartlarida til ta'limi berish orqali ularning kelajagini yoritish.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Har bir o'quvchimiz xalqaro miqyosda raqobatbardosh bo'lishi uchun kerakli bilim va ko'nikmalarni o'rgatish.
-                </p>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -301,6 +204,21 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Success Animation */}
+      {success && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="fixed inset-0 bg-green-600 bg-opacity-75 flex justify-center items-center z-50"
+        >
+          <div className="text-white flex items-center space-x-4 p-6 rounded-lg">
+            <CheckCircle className="w-8 h-8" />
+            <p className="text-xl">Xabar yuborildi!</p>
+          </div>
+        </motion.div>
+      )}
     </div>
   )
 }
