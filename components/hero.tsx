@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Matnlar */}
+          {/* Matnlart */}
           <div
             className={`relative z-10 transform transition-all duration-1000 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -89,7 +89,7 @@ export default function Hero() {
               <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent font-heading-black">
                 Professional
               </span>{" "}
-              O'ganing
+              O'rganing
             </h1>
 
             <p className="font-body text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">

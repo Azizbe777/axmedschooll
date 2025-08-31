@@ -24,8 +24,8 @@ export default function SlidingPartners() {
 
       {/* Sliding Logos */}
       <div className="relative">
-        <div className="flex animate-slide space-x-8 sm:space-x-12 md:space-x-16 lg:space-x-20 hover:[animation-play-state:paused]">
-          {[...partners, ...partners].map((partner, index) => (
+        <div className="flex animate-slide space-x-8 sm:space-x-12 md:space-x-16 lg:space-x-20">
+          {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
             <div
               key={index}
               className="flex-shrink-0 min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex items-center justify-center"
@@ -47,7 +47,7 @@ export default function SlidingPartners() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-25%);
           }
         }
         .animate-slide {

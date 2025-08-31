@@ -63,7 +63,7 @@ export default function Features() {
                 </p>
                 <footer className="text-white/90">
                   <cite className="font-semibold">Ali Akxmedov</cite>
-                  <p className="text-sm">Axmedov School Founder</p>
+                  <p className="text-sm">Axmed School Founder</p>
                 </footer>
               </blockquote>
             </div>
