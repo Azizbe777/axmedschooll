@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Montserrat, Inter } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 import Header from "@/components/header"
 import ScrollToTop from "@/components/scroll-to-top"
@@ -36,6 +37,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-P8QF4YBZTH"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P8QF4YBZTH');
+          `}
+        </Script>
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable} ${inter.variable}`}>
         <Header />
         {children}
