@@ -37,7 +37,7 @@ const categories = [
   {
     icon: Award,
     title: "Consulting xizmatlari",
-    description: "Chet elda ta'lim olish bo'yicha maslahat",
+    description: "Chet eldagi Xalqaro Unuversitetlarga jo'natish",
     color: "from-teal-500 to-teal-600",
   },
 ]

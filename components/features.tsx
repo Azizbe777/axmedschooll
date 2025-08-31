@@ -63,7 +63,7 @@ export default function Features() {
                 </p>
                 <footer className="text-white/90">
                   <cite className="font-semibold">Ali Akxmedov</cite>
-                  <p className="text-sm">Akxmedov School Founder</p>
+                  <p className="text-sm">Axmedov School Founder</p>
                 </footer>
               </blockquote>
             </div>
@@ -91,7 +91,7 @@ export default function Features() {
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             <div className="text-2xl font-bold text-gray-400">Cambridge</div>
             <div className="text-2xl font-bold text-gray-400">IELTS</div>
-            <div className="text-2xl font-bold text-gray-400">TOEFL</div>
+            <div className="text-2xl font-bold text-gray-400">CEFR</div>
             <div className="text-2xl font-bold text-gray-400">British Council</div>
             <div className="text-2xl font-bold text-gray-400">TOPIK</div>
           </div>

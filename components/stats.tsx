@@ -69,7 +69,7 @@ export default function Stats() {
             🔥 Biz bilim bilan muvaffaqiyat ulashamiz!  
             <br />
             <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-              Akxmed School
+              Axmed School
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
