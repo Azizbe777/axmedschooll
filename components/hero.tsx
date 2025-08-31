@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Matnlar */}
+          {/* Matnlart */}
           <div
             className={`relative z-10 transform transition-all duration-1000 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
