@@ -89,7 +89,7 @@ export default function Hero() {
               <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent font-heading-black">
                 Professional
               </span>{" "}
-              O'ganing
+              O'rganing
             </h1>
 
             <p className="font-body text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
