@@ -80,7 +80,7 @@ export default function AboutPage() {
             </h2>
             <p className="font-body text-lg text-gray-700 mb-6 leading-relaxed">
               <span className="font-body-semibold">Axmed School</span> – xalqaro standartlarga mos keluvchi, 
-              <span className="text-red-500 font-body-semibold"> IELTS, TOEFL, CEFR </span>
+              <span className="text-red-500 font-body-semibold"> IELTS, , CEFR </span>
               kurslari orqali minglab talabalarni orzulariga yetkazgan markaz.
             </p>
             <p className="font-body text-lg text-gray-700 leading-relaxed">

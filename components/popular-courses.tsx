@@ -2,44 +2,45 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Star, Clock, Users } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const courses = [
   {
     title: "Beginner-Elementary daraja",
-    instructor: "Malika Karimova",
+    instructor: "",
     rating: 4.9,
     students: 15,
-    duration: "3 soat",
+    duration: "2 oy",
     price: "280,000 so'm",
     image: "/bg.jpg",
     category: "Ingliz tili",
   },
   {
     title: "Pre-intermediate-Intermediate",
-    instructor: "Jasur Rahimov",
+    instructor: "",
     rating: 4.8,
     students: 18,
-    duration: "3 oy",
+    duration: "2 oy",
     price: "300,000 so'm",
     image: "/pe.jpg",
     category: "Ingliz tili",
   },
   {
-    title: "Pre-IELTS-IELTS",
-    instructor: "Park Min-jung",
+    title: "Pre-IELTS-IELTS Teacher 8.5",
+    instructor: "",
     rating: 5,
     students: 12,
-    duration: "2-3 oy",
-    price: "350,000 so'm",
+    duration: "2 oy",
+    price: "400,000 so'm",
     image: "/pre.avif",
     category: "Ingiliz tili",
   },
   {
     title: "Topic",
-    instructor: "Dilnoza Abdullayeva",
+    instructor: "",
     rating: 4.9,
     students: 25,
-    duration: "4-6 oy",
+    duration: "2 oy",
     price: "350,000 so'm",
     image: "/ielt.jpg",
     category: "Koreys tili",
@@ -49,6 +50,7 @@ const courses = [
 export default function PopularCourses() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,7 +110,7 @@ export default function PopularCourses() {
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-2">
                   {course.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">O'qituvchi: {course.instructor}</p>
+                <p className="text-gray-600 text-sm mb-3"> {course.instructor}</p>
 
                 <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
                   <div className="flex items-center gap-1">
@@ -127,7 +129,10 @@ export default function PopularCourses() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-red-600">{course.price}</span>
-                  <button className="bg-gray-100 hover:bg-black hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300">
+                  <button 
+                    onClick={() => router.push('/contact#contact-form')}
+                    className="bg-gray-100 hover:bg-black hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300"
+                  >
                     Ro'yxatdan o'tish
                   </button>
                 </div>

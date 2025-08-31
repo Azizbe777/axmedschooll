@@ -25,7 +25,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "AXMED SCHOOL - Ingliz va Koreys tili kurslari",
-  description: "Professional ingliz va koreys tili kurslari. IELTS, TOEFL tayyorgarlik va konsalting xizmatlari.",
+  description: "Professional ingliz va koreys tili kurslari. IELTS, CEFR tayyorgarlik va konsalting xizmatlari.",
   generator: "v0.app",
 }
 
