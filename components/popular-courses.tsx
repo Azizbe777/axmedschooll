@@ -11,7 +11,7 @@ const courses = [
     rating: 4.9,
     students: 15,
     duration: "2 oy",
-    price: "280,000 so'm",
+    price: "300,000 so'm",
     image: "/bg.jpg",
     category: "Ingliz tili",
   },
