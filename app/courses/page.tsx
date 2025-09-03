@@ -14,10 +14,10 @@ export default function CoursesPage() {
 
   // Ingliz tili kurslari (darajalar bo‘yicha)
   const englishCourses = [
-    { id: "beginner", title: "Beginner", level: "A1", duration: "2-3 oy", students: "10-15 kishi", price: "280 000 so'm",
+    { id: "beginner", title: "Beginner", level: "A1", duration: "2-3 oy", students: "10-15 kishi", price: "300 000 so'm",
       features: ["Asosiy grammatika", "Oddiy so‘zlar va iboralar", "O‘qish va tinglash asoslari"], 
       schedule: "Har kuni (09:00-11:00)", location: "Jizzax,Prospekt mo'ljal yoshlar-markazi" },
-    { id: "elementary", title: "Elementary", level: "A2", duration: "2-3 oy", students: "10-15 kishi", price: "280 000 so'm",
+    { id: "elementary", title: "Elementary", level: "A2", duration: "2-3 oy", students: "10-15 kishi", price: "300 000 so'm",
       features: ["Kundalik suhbat", "Oddiy matnlarni tushunish", "Asosiy yozish amaliyoti"], 
       schedule: "Har kuni (11:00-13:00)", location: "Jizzax,Prospekt mo'ljal yoshlar-markazi" },
     { id: "preintermediate", title: "Pre-Intermediate", level: "B1", duration: "2-3 oy", students: "10-15 kishi", price: "300 000 so'm",
