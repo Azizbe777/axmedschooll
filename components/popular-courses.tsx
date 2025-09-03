@@ -8,7 +8,7 @@ const courses = [
   {
     title: "Beginner-Elementary daraja",
     instructor: "",
-    rating: 4.9,
+    rating: 5,
     students: 15,
     duration: "2 oy",
     price: "300,000 so'm",
